@@ -1,0 +1,619 @@
+None selected 
+
+Skip to content
+Using Gmail with screen readers
+Conversations
+89% of 100 GB used
+Terms · Privacy · Program Policies
+Last account activity: 0 minutes ago
+Open in 1 other location · Details
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Digital Twin Maturity Model (TRMM) — Modeling to Operation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #f7f7f8; }
+    .hero { background: white; border-radius: 1.25rem; box-shadow: 0 0.5rem 1rem rgba(0,0,0,.06); }
+    .card { border-radius: 1.25rem; box-shadow: 0 0.5rem 1rem rgba(0,0,0,.06); border: 0; }
+    .badge-soft { background: rgba(13,110,253,.08); color: #0d6efd; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .kpi { background: rgba(25,135,84,.08); color: #198754; }
+    .risk { background: rgba(220,53,69,.08); color: #dc3545; }
+    .muted { color: #6c757d; }
+    .smallcaps { font-variant: all-small-caps; letter-spacing: .04em; }
+    .sticky-top-2 { top: .75rem; }
+    .anchor { scroll-margin-top: 90px; }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" href="#">Digital Twin Maturity Model</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#theory">Theory</a></li>
+        <li class="nav-item"><a class="nav-link" href="#model">Model</a></li>
+        <li class="nav-item"><a class="nav-link" href="#operate">Operate</a></li>
+        <li class="nav-item"><a class="nav-link" href="#templates">Templates</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-4">
+  <section class="hero p-4 p-md-5 mb-4">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-8">
+        <div class="smallcaps muted mb-2">TRMM • Modeling → Operation</div>
+        <h1 class="display-6 fw-semibold mb-3">A utility-grade definition of Digital Twin maturity</h1>
+        <p class="lead mb-3">
+          A digital twin is <span class="fw-semibold">not</span> a mirror of reality. It is a continuously enforced hypothesis about how a system is allowed to behave over time,
+          designed to prevent humans from being surprised.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge rounded-pill badge-soft px-3 py-2">State-aware expectations</span>
+          <span class="badge rounded-pill badge-soft px-3 py-2">Trajectory + time-to-harm</span>
+          <span class="badge rounded-pill badge-soft px-3 py-2">Audit + drift control</span>
+          <span class="badge rounded-pill badge-soft px-3 py-2">Operational authority</span>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card p-3">
+          <div class="fw-semibold mb-2">Two chains</div>
+          <div class="mono small mb-2">Process → Sensor → Threshold → Alarm → Operator → Action</div>
+          <div class="mono small">Process → Sensor → State → Behavioral Overlay → Actionable Insight → Enforced Action</div>
+          <hr>
+          <div class="muted small">
+            If the “twin” doesn’t reduce alarm load, pull risk forward in time, and survive audit,
+            it’s a dashboard in cosplay.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="theory" class="anchor mb-4">
+    <div class="card p-4">
+      <h2 class="h4 fw-semibold mb-3">Theory</h2>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h3 class="h6 fw-semibold">Axioms (bare metal)</h3>
+          <ul class="mb-0">
+            <li><span class="fw-semibold">Cognition is the bottleneck.</span> Systems fail when attention is overloaded, not when data is missing.</li>
+            <li><span class="fw-semibold">Alarm ≠ threshold.</span> Alarm = actionable abnormality with time-to-act.</li>
+            <li><span class="fw-semibold">State changes meaning.</span> Normal depends on context (startup, steady, abnormal, degraded).</li>
+            <li><span class="fw-semibold">Entropy is default.</span> Without audit/enforcement, models and configs drift.</li>
+            <li><span class="fw-semibold">Utility beats beauty.</span> If it doesn’t change operations, it doesn’t count.</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="h6 fw-semibold">Twin test (no-excuses)</h3>
+          <ol class="mb-0">
+            <li>What is “normal” <span class="fw-semibold">right now</span>?</li>
+            <li>Which deviation <span class="fw-semibold">trajectory</span> leads to harm?</li>
+            <li>When does intervention still matter (<span class="fw-semibold">time-to-act</span>)?</li>
+            <li>What gets suppressed automatically (bad actors/noise)?</li>
+            <li>How are model changes controlled (audit, approvals, rollback)?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="model" class="anchor mb-4">
+    <div class="card p-4">
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-3">
+        <h2 class="h4 fw-semibold mb-0">Digital Twin Readiness Maturity Model</h2>
+        <div class="muted">Levels 0 → 6, from telemetry to enforced operation</div>
+      </div>
+
+      <div class="accordion" id="levels">
+
+        <div class="accordion-item border-0 mb-2">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#l0">
+              <span class="fw-semibold me-2">Level 0 — Raw Telemetry</span> <span class="badge rounded-pill kpi">We have data</span>
+            </button>
+          </h2>
+          <div id="l0" class="accordion-collapse collapse" data-bs-parent="#levels">
+            <div class="accordion-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="fw-semibold">What exists</div>
+                  <ul>
+                    <li>Sensors stream values</li>
+                    <li>No context, no expectations</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="fw-semibold">Failure mode</div>
+                  <ul>
+                    <li>Surprises are routine</li>
+                    <li>“We saw it in the trend” after the fact</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="muted small">Twin status: none. Authority: human intuition.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0 mb-2">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#l1">
+              <span class="fw-semibold me-2">Level 1 — Threshold Alarming</span> <span class="badge rounded-pill kpi">We detect out-of-range</span>
+            </button>
+          </h2>
+          <div id="l1" class="accordion-collapse collapse" data-bs-parent="#levels">
+            <div class="accordion-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="fw-semibold">What exists</div>
+                  <ul>
+                    <li>Static limits, reactive alarms</li>
+                    <li>Operator becomes the control loop</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="fw-semibold">Failure mode</div>
+                  <ul>
+                    <li>Alarm floods, nuisance alerts</li>
+                    <li>Late detection for slow degradation</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="muted small">Twin status: cosmetic dashboards. Authority: operator.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0 mb-2">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#l2">
+              <span class="fw-semibold me-2">Level 2 — Alarm Discipline</span> <span class="badge rounded-pill kpi">We know what deserves attention</span>
+            </button>
+          </h2>
+          <div id="l2" class="accordion-collapse collapse" data-bs-parent="#levels">
+            <div class="accordion-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="fw-semibold">What exists</div>
+                  <ul>
+                    <li>Alarm philosophy</li>
+                    <li>Baseline + benchmarking</li>
+                    <li>Bad actor resolution</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="fw-semibold">Failure mode</div>
+                  <ul>
+                    <li>Still blind to “slow burn” precursors</li>
+                    <li>Context shifts break static logic</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="muted small">Twin status: implicit. Authority: alarm rules.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0 mb-2">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#l3">
+              <span class="fw-semibold me-2">Level 3 — State Awareness</span> <span class="badge rounded-pill kpi">Normal depends on context</span>
+            </button>
+          </h2>
+          <div id="l3" class="accordion-collapse collapse" data-bs-parent="#levels">
+            <div class="accordion-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="fw-semibold">What exists</div>
+                  <ul>
+                    <li>Operating state model (startup/steady/abnormal/degraded)</li>
+                    <li>State-conditioned thresholds and priorities</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="fw-semibold">Failure mode</div>
+                  <ul>
+                    <li>Hidden dynamics still unmodeled (aging, inertia, cumulative stress)</li>
+                    <li>State detection errors become new bad actors</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="muted small">Twin role: state resolver. Authority: state logic.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0 mb-2">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#l4">
+              <span class="fw-semibold me-2">Level 4 — Behavioral Overlay</span> <span class="badge rounded-pill kpi">We know what should be happening</span>
+            </button>
+          </h2>
+          <div id="l4" class="accordion-collapse collapse" data-bs-parent="#levels">
+            <div class="accordion-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="fw-semibold">What exists</div>
+                  <ul>
+                    <li>Expected behavior model (physics, data-driven, or hybrid)</li>
+                    <li>Deviation tracking (direction + rate + persistence)</li>
+                    <li>Inference of unmeasured realities (stress, degradation)</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="fw-semibold">Failure mode</div>
+                  <ul>
+                    <li>Model drift if unmanaged</li>
+                    <li>Overfitting: the model becomes a liar with confidence</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="muted small">Twin role: behavioral hypothesis. Authority: deviation + time-to-harm.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0 mb-2">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#l5">
+              <span class="fw-semibold me-2">Level 5 — Actionable Insight</span> <span class="badge rounded-pill kpi">We intervene before alarms</span>
+            </button>
+          </h2>
+          <div id="l5" class="accordion-collapse collapse" data-bs-parent="#levels">
+            <div class="accordion-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="fw-semibold">What exists</div>
+                  <ul>
+                    <li>Role-specific insights with clear actions</li>
+                    <li>Time-to-act and consequence baked into escalation</li>
+                    <li>Precursor alerts separated from alarms</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="fw-semibold">Failure mode</div>
+                  <ul>
+                    <li>Insight spam if governance is weak</li>
+                    <li>Ops ignores it if it can’t be trusted</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="muted small">Twin role: early-warning gate. Authority: time-to-act logic.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#l6">
+              <span class="fw-semibold me-2">Level 6 — Enforced Operation</span> <span class="badge rounded-pill risk">Some futures are no longer allowed</span>
+            </button>
+          </h2>
+          <div id="l6" class="accordion-collapse collapse" data-bs-parent="#levels">
+            <div class="accordion-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="fw-semibold">What exists</div>
+                  <ul>
+                    <li>Automatic suppression of bad actors and known noise</li>
+                    <li>Escalation only when action exists</li>
+                    <li>Operational interlocks / gated permissions based on twin outcomes</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="fw-semibold">Failure mode</div>
+                  <ul>
+                    <li>Organizational resistance (“don’t block my operation”)</li>
+                    <li>Requires strong audit + accountability</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="muted small">Twin role: expectation enforcer. Authority: system-level governance.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="my-4">
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="fw-semibold">What “maturity” really means</div>
+          <div class="muted">
+            Not more visualization. Not more models. Maturity is the point where the twin reliably reduces surprise by moving risk earlier in time,
+            while surviving audit and change control.
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="fw-semibold">Minimum definition (use publicly)</div>
+          <div class="mono p-3 bg-light rounded-4">
+            Digital twinning is enforcing expectations before alarms are needed.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="operate" class="anchor mb-4">
+    <div class="card p-4">
+      <h2 class="h4 fw-semibold mb-3">From Modeling to Operation</h2>
+
+      <ul class="nav nav-pills gap-2 mb-3" id="pills" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active rounded-pill" id="p1-tab" data-bs-toggle="pill" data-bs-target="#p1" type="button" role="tab">1) Boundary</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill" id="p2-tab" data-bs-toggle="pill" data-bs-target="#p2" type="button" role="tab">2) Data & Trust</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill" id="p3-tab" data-bs-toggle="pill" data-bs-target="#p3" type="button" role="tab">3) State</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill" id="p4-tab" data-bs-toggle="pill" data-bs-target="#p4" type="button" role="tab">4) Behavior</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill" id="p5-tab" data-bs-toggle="pill" data-bs-target="#p5" type="button" role="tab">5) Action</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill" id="p6-tab" data-bs-toggle="pill" data-bs-target="#p6" type="button" role="tab">6) Governance</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="pillsContent">
+        <div class="tab-pane fade show active" id="p1" role="tabpanel">
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Boundary (what the twin is responsible for)</div>
+              <ul>
+                <li>Assets, failure modes, and operational decisions in scope</li>
+                <li>What the twin may infer vs what it must never guess</li>
+                <li>What constitutes “harm” (safety, reliability, cost, compliance)</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Outputs</div>
+              <ul>
+                <li>Defined “inadmissible futures” list</li>
+                <li>Decision catalog (who acts, how fast, with what authority)</li>
+                <li>Acceptance test for usefulness (reduces surprise)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="p2" role="tabpanel">
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Data & Trust (don’t build a twin on lies)</div>
+              <ul>
+                <li>Sensor quality scoring and “bad actor” suppression</li>
+                <li>Time sync, missingness rules, drift detection</li>
+                <li>Provenance: where each signal comes from and who can change it</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Outputs</div>
+              <ul>
+                <li>Data contract + schema</li>
+                <li>Trust gates (ignore, down-weight, escalate)</li>
+                <li>Baseline report (start point)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="p3" role="tabpanel">
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">State (meaning changes with context)</div>
+              <ul>
+                <li>State machine: startup, steady, abnormal, degraded, maintenance</li>
+                <li>State detection logic and confidence</li>
+                <li>State-conditioned limits and priorities</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Outputs</div>
+              <ul>
+                <li>State definitions + entry/exit criteria</li>
+                <li>State-specific expectations</li>
+                <li>State misclassification as a monitored risk</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="p4" role="tabpanel">
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Behavior (expected vs observed)</div>
+              <ul>
+                <li>Behavior model: physics / data / hybrid</li>
+                <li>Deviation: direction + rate + persistence</li>
+                <li>Trajectory-to-harm mapping (what happens if we do nothing)</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Outputs</div>
+              <ul>
+                <li>Deviation score + explanation</li>
+                <li>Time-to-harm estimate with confidence band</li>
+                <li>Known failure signatures catalog</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="p5" role="tabpanel">
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Action (make it operational)</div>
+              <ul>
+                <li>Separate advisories from alarms</li>
+                <li>Only escalate when an action exists</li>
+                <li>Bind each alert to an owner + SLA</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Outputs</div>
+              <ul>
+                <li>Action cards (who/what/when/why)</li>
+                <li>Work order triggers (CBM/maintenance)</li>
+                <li>Feedback loop: did action reduce risk?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="p6" role="tabpanel">
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Governance (survive time)</div>
+              <ul>
+                <li>Model registry, versioning, approvals, rollback</li>
+                <li>Audit trail: who changed what, when, and why</li>
+                <li>Continuous monitoring: drift, false positives, misses</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <div class="fw-semibold mb-1">Outputs</div>
+              <ul>
+                <li>Change control policy</li>
+                <li>Periodic audit report</li>
+                <li>Retirement policy for broken models</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="my-4">
+      <div class="row g-3">
+        <div class="col-lg-4">
+          <div class="card p-3">
+            <div class="fw-semibold mb-1">Design invariant</div>
+            <div class="muted">If it can’t be acted on, it is not an alarm. If it can’t survive audit, it is not a twin.</div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card p-3">
+            <div class="fw-semibold mb-1">Operational invariant</div>
+            <div class="muted">Every output must name: owner, action, time-to-act, and consequence.</div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card p-3">
+            <div class="fw-semibold mb-1">Safety invariant</div>
+            <div class="muted">Suppression must be reversible, time-bounded, and visible. No “forever mute”.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="templates" class="anchor mb-5">
+    <div class="card p-4">
+      <h2 class="h4 fw-semibold mb-3">Templates</h2>
+
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="card p-3">
+            <div class="fw-semibold mb-2">Template A — Twin Charter (1 page)</div>
+            <div class="mono small bg-light p-3 rounded-4">
+Purpose:
+Scope:
+Decisions enabled:
+States modeled:
+Inadmissible futures:
+Inputs (signals):
+Outputs (alerts/advisories):
+Owners + SLAs:
+Governance (audit/versioning):
+Success metrics:
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card p-3">
+            <div class="fw-semibold mb-2">Template B — Action Card</div>
+            <div class="mono small bg-light p-3 rounded-4">
+Title:
+Trigger condition:
+Current state:
+Deviation summary:
+Time-to-harm (confidence):
+Recommended action:
+Owner:
+SLA:
+Escalation path:
+Evidence links:
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card p-3">
+            <div class="fw-semibold mb-2">Template C — Model Registry Entry</div>
+            <div class="mono small bg-light p-3 rounded-4">
+Model name / version:
+Purpose:
+Assumptions:
+Training/baseline window:
+Inputs:
+Outputs:
+Validation tests:
+Known failure modes:
+Drift monitors:
+Approval / sign-off:
+Rollback plan:
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card p-3">
+            <div class="fw-semibold mb-2">Template D — Weekly Ops Review</div>
+            <div class="mono small bg-light p-3 rounded-4">
+Volume:
+Top 10 insights:
+False positives:
+Missed events:
+Bad actors detected:
+Suppression counts + age:
+Drift incidents:
+Actions closed vs open:
+Policy changes required:
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4">
+      <div class="text-center">
+        <div class="h5 fw-semibold mb-1">Om shāntiḥ, shāntiḥ, shāntiḥ</div>
+        <div class="muted">May the operation stay calm even when the plant refuses to.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center muted small mb-4">
+    Built for utility operations: less surprise, more authority, fewer “interesting” incidents.
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+digital_twin_maturity_model_trmm.html
+Displaying digital_twin_maturity_model_trmm.html.
